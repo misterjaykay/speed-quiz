@@ -1,0 +1,38 @@
+body {
+    height: 100%;
+    width: 100%
+}
+
+h1 {
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    font-weight: bold;
+} 
+
+p {
+    font-family: 'Source Sans Pro', sans-serif;
+    text-align: center;
+    font-size: 17px;
+}
+
+button {
+    margin-left: 220px;
+    /* width makes button wider
+    width: 100%; */
+}
+
+/* main conatiner */
+
+.container {
+    padding: 50px;
+    max-width: 600px;
+    margin: 200px auto;
+}
+
+.quizbox {
+    height: 500px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 50%;
+    position: relative; 
+}
