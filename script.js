@@ -22,14 +22,17 @@ function startTime() {
      }, 1000);
 
 
-
-
-
 }
 
 var answerList = document.querySelector(".answers");
+var answerA = document.querySelector("#answer-a");
+var answerB = document.querySelector("#answer-b");
+var answerC = document.querySelector("#answer-c");
+var answerD = document.querySelector("#answer-d");
+
 
 function startQuiz() {
+    
     var answerRight = document.querySelector("#answer-c");
     quizEl.children[1].style.display = "none";
     mainEl.children[0].textContent = "Question 1";
@@ -51,6 +54,7 @@ function startQuiz() {
 }
 
 function secondQuestion() {
+    
     var answerRight = document.querySelector("#answer-d");
     // quizEl.children[1].style.display = "none";
     mainEl.children[0].textContent = "Question 2";
@@ -66,9 +70,25 @@ function secondQuestion() {
 
     answerRight.addEventListener("click", function() {
         alert("correct");
-        
+        thirdQuestion();
     });
 }
+
+
+var thirdAnswer = ["Answer A", "Answer B", "Answer C", "Answer D"];
+
+function thirdQuestion() {
+    mainEl.children[0].textContent = "Question 3";
+    mainEl.children[1].textContent = "Place your question 3 here?";
+    answerList.children[0].textContent = thirdAnswer[0]; 
+    answerList.children[1].textContent = thirdAnswer[1];
+    answerList.children[2].textContent = thirdAnswer[2];
+    answerList.children[3].textContent = thirdAnswer[3]; 
+    
+    
+}
+
+
 
 function endMessage() {
     mainEl.children[0].textContent = "Game Over!";
