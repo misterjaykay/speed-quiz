@@ -3,19 +3,19 @@ body {
     width: 100%
 }
 
-h1 {
+.questiontitle {
     font-family: 'Raleway', sans-serif;
     text-align: center;
     font-weight: bold;
 } 
 
-p {
+.questionbody {
     font-family: 'Source Sans Pro', sans-serif;
     text-align: center;
     font-size: 17px;
 }
 
-button {
+#start {
     margin-left: 220px;
     /* width makes button wider
     width: 100%; */
@@ -35,4 +35,8 @@ button {
     margin: 0 auto;
     border-radius: 50%;
     position: relative; 
+}
+
+.none {
+    display: none;  
 }
