@@ -15,9 +15,14 @@
 </head>
 
 <body>
-    <div class="jumbotron">
-        <h3 class="float-left">View Highscores</h3>
-        <div class="float-right">Timer: <h3 class="timer"></h3></div>
+    <div class="jumbotron jumbotron-fluid">
+        <!-- <div class="container"> -->
+            
+            <a href="highscore.html" class="floast-left">
+                <h3>View Highscores</h3>
+            </a>
+            <div class="float-right">Timer: <h3 class="timer"></h3></div>
+        <!-- </div> -->
     </div>
 
     <div class="container"> 
@@ -31,15 +36,13 @@
                     <br>
                     Good Luck and Have Fun!
                 </p>
-                <div class="answers">
-                    <button id="answer-a" class="none"></button>
-                    <button id="answer-b" class="none"></button>
-                    <button id="answer-c" class="none"></button>
-                    <button id="answer-d" class="none"></button>
-                </div>
+                <ul class="answer-div">
+
+                </ul>
             </div>
-         
-            <button id="start">START</button>
+            <input type="text" class="form-control none" id="inputName" placeholder="Type your name here.">
+            <button type="button" class="btn btn-warning none" id="submit">SUBMIT</button>
+            <button type="button" class="btn btn-danger" id="start">START</button>
         </div>
     </div>
 
