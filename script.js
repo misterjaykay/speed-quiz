@@ -89,3 +89,26 @@ function showQuestion() {
 
 }
 
+///// SELECTING ANSWERS HERE /////
+var listEl = document.querySelector(".answer-div");
+
+/////////////// CLICKING ANSWERS
+listEl.addEventListener("click", function(event) {
+    // var element = this;
+    // var userAnswer = element.getAttribute("id");
+    event.preventDefault;
+    var btnClick = event.target;
+    var userAnswer = btnClick.getAttribute("id");
+    var trueAnswer = questionList[questionIndex].answer;
+    console.log(userAnswer);
+    console.log(trueAnswer);
+    if (trueAnswer === userAnswer) {
+        points++;
+        nextQuestion();
+    }
+    else {
+        points--;
+        timeLeft - 5;
+        nextQuestion();
+    }
+});
