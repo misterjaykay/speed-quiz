@@ -32,13 +32,13 @@ var questionList = [{
 
 var points = 0;
 
-
+var quizEl = document.querySelector(".quizbox");
 var startButton = document.getElementById("start");
 startButton.addEventListener("click", startQuiz);
 
 
 function startQuiz() {
-    console.log("start");
+    quizEl.children[1].setAttribute("style", "display:none;");
     startTime();
     showQuestion();
 }
@@ -54,7 +54,7 @@ function startTime() {
         timeEl.textContent = timeLeft + " sec Remaining";
         if(timeLeft === 0) {
             clearInterval(timerInterval);
-            // endMessage();
+             endMessage();
         }
     }, 1000);
 
@@ -122,7 +122,7 @@ function nextQuestion() {
     var isQuestionOver = (questionList.length - 1) === questionIndex;
     console.log(isQuestionOver);
     if (isQuestionOver) {
-        
+        endMessage();
     }
     else {
         questionIndex++;
@@ -130,4 +130,19 @@ function nextQuestion() {
     }
     
     
+}
+
+var scoreBox = document.querySelector(".score-box");
+var gameOver = document.querySelector(".game-over");
+var overMessage = document.querySelector(".over-message");
+
+var mainEl = document.querySelector(".mainbox");
+
+function endMessage(){
+    mainEl.setAttribute("style","display:none;");
+    gameOver.textContent = "Game Over!";
+    overMessage.textContent = "Thank you for playing.\n Your total point is " + points;
+    var submitButton = document.createElement("button");
+    submitButton.textContent = "Submit";
+    scoreBox.append(submitButton);
 }
