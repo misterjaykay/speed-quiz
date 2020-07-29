@@ -122,6 +122,9 @@ function nextQuestion() {
     var isQuestionOver = (questionList.length - 1) === questionIndex;
     console.log(isQuestionOver);
     if (isQuestionOver) {
+        clearInterval(timerInterval);
+        timeLeft = 0;
+        timeEl.textContent = timeLeft + " sec Remaining";
         endMessage();
     }
     else {
@@ -135,7 +138,7 @@ function nextQuestion() {
 var scoreBox = document.querySelector(".score-box");
 var gameOver = document.querySelector(".game-over");
 var overMessage = document.querySelector(".over-message");
-
+var sumbmitButton = document.querySelector("#highscore");
 var mainEl = document.querySelector(".mainbox");
 
 function endMessage(){
@@ -144,5 +147,6 @@ function endMessage(){
     overMessage.textContent = "Thank you for playing.\n Your total point is " + points;
     var submitButton = document.createElement("button");
     submitButton.textContent = "Submit";
+    submitButton.setAttribute("OnClick", "location.href='highscore.html'");
     scoreBox.append(submitButton);
 }
