@@ -68,3 +68,24 @@ var questionBody = document.querySelector(".questionbody")
 var questionIndex = 0;
 
 
+////////// SHOWING QUESTION 
+function showQuestion() {
+    var questionShow = questionList[questionIndex].question;
+    var questionChoice = questionList[questionIndex].choices;
+    console.log(questionShow);
+    console.log(questionChoice);
+
+    questionBody.textContent = questionShow;
+    // questionChoice.textContent = li;
+    for (var i = 0; i < questionList[questionIndex].choices.length; i++) {
+        var answer = questionList[questionIndex].choices[i];
+            
+        var li = document.createElement("li");
+        li.textContent = answer;
+        li.setAttribute("id", questionList[questionIndex].choices[i]);  
+    
+        answerDiv.append(li);
+    }
+
+}
+
