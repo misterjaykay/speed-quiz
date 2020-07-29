@@ -112,3 +112,22 @@ listEl.addEventListener("click", function(event) {
         nextQuestion();
     }
 });
+
+////////// GOING TO NEXT QUESTION
+function nextQuestion() {
+    answerDiv.removeChild(answerDiv.childNodes[4]);
+    answerDiv.removeChild(answerDiv.childNodes[3]);
+    answerDiv.removeChild(answerDiv.childNodes[2]);
+    answerDiv.removeChild(answerDiv.childNodes[1]);
+    var isQuestionOver = (questionList.length - 1) === questionIndex;
+    console.log(isQuestionOver);
+    if (isQuestionOver) {
+        
+    }
+    else {
+        questionIndex++;
+        showQuestion();
+    }
+    
+    
+}
