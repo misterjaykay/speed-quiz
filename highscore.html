@@ -9,24 +9,35 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <title>Highscores!!!</title>
+    <title>Highscore Page</title>
 </head>
 
 <body>
-
-    <div class="card">
-        <h2>Current Highscore</h2>
-        <h3>Name</h3>
-            <p id="last-user-display"></p>
-        <h3>Score</h3>
-            <p id="last-user-score"></p>
+    <div class="jumbotron jumbotron-fluid">
+        <h3>Current Highscore</h3> 
     </div>
-    
+    <div class="container">
+        <div class="card row">
+            <div class ="col-10 ml-auto mr-auto">
+                <div class="card-header centerize">
+                    <h4>SCORE BOARD</h4>
+                </div>
+                <ul class="list-group list-group-flush rounded leader-board">
+                
+                </ul>
+            </div>
+        </div>
+        <div class="button-box centerize">
+            <button class="btn btn-success py-1 my-2 mr-1" id="reset-score">Reset Score</button>
+            <button class="btn btn-success py-1 my-2 ml-1" id="go-back-button">Go Back</button>
+        </div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
+    <script src="highscore.js"></script>
 </body>
 
 </html>

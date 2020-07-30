@@ -1,3 +1,5 @@
+
+//////////////////////// QUESTION LIST
 var questionList = [{
     question: "Q1: What is Tofu made of?",
     answer: "Soy Beans",
@@ -30,10 +32,25 @@ var questionList = [{
 }];
 
 
+///////////////// GLOBAL VARIBLES 
+var listEl = document.querySelector(".answer-div");
+var scoreBox = document.querySelector(".score-box");
+var gameOver = document.querySelector(".game-over");
+var overMessage = document.querySelector(".over-message");
+var sumbmitButton = document.querySelector("#highscore");
+var mainEl = document.querySelector(".mainbox");
+var submitNameInput = document.querySelector("#submit-name");
+var answerDiv = document.querySelector(".answer-div");
+var questionBody = document.querySelector(".question-body");
+var questionTitle = document.querySelector(".question-title");
+var questionIndex = 0;
 var points = 0;
-
 var quizEl = document.querySelector(".quizbox");
 var startButton = document.getElementById("start");
+
+
+
+
 startButton.addEventListener("click", startQuiz);
 
 
@@ -43,7 +60,7 @@ function startQuiz() {
     showQuestion();
 }
 
-///// TIMER PART (OKAY) /////
+///////////////// TIMER
 var timeEl = document.querySelector(".timer");
 var timeLeft = 60;
 
@@ -60,42 +77,32 @@ function startTime() {
 
 
 }
-//////////
-
-///// LEAVING GLOBAL VARIABLES HERE /////
-var answerDiv = document.querySelector(".answer-div");
-var questionBody = document.querySelector(".questionbody")
-var questionIndex = 0;
 
 
-////////// SHOWING QUESTION 
+////////////////// SHOWING QUESTION 
 function showQuestion() {
     var questionShow = questionList[questionIndex].question;
     var questionChoice = questionList[questionIndex].choices;
     console.log(questionShow);
     console.log(questionChoice);
 
-    questionBody.textContent = questionShow;
-    // questionChoice.textContent = li;
+    questionTitle.textContent = questionShow;
+    questionBody.setAttribute("style","display: none;");
+    // questionChoice.textContent = li; 
     for (var i = 0; i < questionList[questionIndex].choices.length; i++) {
         var answer = questionList[questionIndex].choices[i];
             
         var li = document.createElement("li");
         li.textContent = answer;
         li.setAttribute("id", questionList[questionIndex].choices[i]);  
-    
         answerDiv.append(li);
     }
 
 }
 
-///// SELECTING ANSWERS HERE /////
-var listEl = document.querySelector(".answer-div");
 
 /////////////// CLICKING ANSWERS
 listEl.addEventListener("click", function(event) {
-    // var element = this;
-    // var userAnswer = element.getAttribute("id");
     event.preventDefault;
     var btnClick = event.target;
     var userAnswer = btnClick.getAttribute("id");
@@ -119,13 +126,13 @@ listEl.addEventListener("click", function(event) {
     }
 });
 
-////////// GOING TO NEXT QUESTION
+////////////// GOING TO NEXT QUESTION
 function nextQuestion() {
     answerDiv.innerHTML = " ";
-    // answerDiv.removeChild(answerDiv.childNodes[4]);
-    // answerDiv.removeChild(answerDiv.childNodes[3]);
-    // answerDiv.removeChild(answerDiv.childNodes[2]);
-    // answerDiv.removeChild(answerDiv.childNodes[1]);
+    // answerDiv.removeChild(answerDiv.childNodes[4]); /// condensed with using innerHTML
+    // answerDiv.removeChild(answerDiv.childNodes[3]); /// 
+    // answerDiv.removeChild(answerDiv.childNodes[2]); /// 
+    // answerDiv.removeChild(answerDiv.childNodes[1]); /// 
     var isQuestionOver = (questionList.length - 1) === questionIndex;
     console.log(isQuestionOver);
     if (isQuestionOver) {
@@ -144,18 +151,15 @@ function nextQuestion() {
 }
 
 
-///// ENDING HERE
-var scoreBox = document.querySelector(".score-box");
-var gameOver = document.querySelector(".game-over");
-var overMessage = document.querySelector(".over-message");
-var sumbmitButton = document.querySelector("#highscore");
-var mainEl = document.querySelector(".mainbox");
-
+/////////////////// ENDING HERE
 function endMessage(){
-    quizEl.setAttribute("class","hide");
+    quizEl.setAttribute("style","display: none;");
     gameOver.textContent = "Game Over!";
     overMessage.textContent = "Thank you for playing.\n Your total point is " + points;
-    scoreBox.removeAttribute("class", "hide");
+    // scoreBox.children[0].removeAttribute("style", "display: none;"); // This did not work somehow
+    scoreBox.children[0].setAttribute("style", "display:block;");
+    
+    ///////////// USED HTML INSTEAD OF USING JAVASCRIPT CODE
     // var submitName = document.createElement("input");
     // submitName.setAttribute("type", "text")
     // submitName.setAttribute("id", "submit-name");
@@ -168,16 +172,8 @@ function endMessage(){
     // scoreBox.append(submitButton);
 }
 
-/////////////////////////////// TODAYS WORK
 
-
-// Cannot have id on button right now.
-// var sumbmitButtonClick = document.querySelector();
-// function addHighscore() {
-
-var submitNameInput = document.querySelector("#submit-name");
-
-
+////////////////// STORING DATA TO LOCAL STORAGE
 sumbmitButton.addEventListener("click", function() {
     if (userData !== "") {
         var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
@@ -188,37 +184,22 @@ sumbmitButton.addEventListener("click", function() {
         };
         highscores.push(userData);
         localStorage.setItem("highscores", JSON.stringify(highscores));
-        var lastUser = JSON.parse(localStorage.getItem("highscores"));
-        console.log(lastUser[0]);
         window.location.href = "highscore.html";  
         return displayLast();
     }
 });
 
-var lastUserDisplay = document.querySelector("#last-user-display");
-var lastScoreDisplay = document.querySelector("#last-user-score");
 
-////////////////////// DISPLAYING SCORE
-function displayLast() {
-    // lastUserDisplay.textContent = lastUser[0].username;
-    // lastScoreDisplay.textContent = lastUser[0].userscore;
-    // alert("bye1");
-    var lastUserDisplay = document.querySelector("#last-user-display");
-    var lastScoreDisplay = document.querySelector("#last-user-score");
-
-    var lastUser = JSON.parse(localStorage.getItem("highscores"));
-        console.log(lastUser[0].username);
-        console.log(lastUser[0]);
-        lastUserDisplay.textContent = lastUser[0].username;
-        lastScoreDisplay.textContent = lastUser[0].userscore;
-        console.log(lastUser.username);
-        console.log(lastUser);
-    alert("bye2");
-}
-
-//////////////// STORING IN LOCAL STROAGE
-// function addHighscore() {
-//     localStorage.setItem("userData", JSON.stringify(userData));
-     
+//////////////////////// DISPLAYING SCORE 
+///////////////// LEAVING THIS FOR FUTURE USE.
+// function displayLast() {
+//     // lastUserDisplay.textContent = lastUser[0].username;
+//     // lastScoreDisplay.textContent = lastUser[0].userscore;
+//     var lastUserDisplay = document.querySelector("#last-user-display");
+//     var lastScoreDisplay = document.querySelector("#last-user-score");
+//     var lastUser = JSON.parse(localStorage.getItem("highscores"));
+//         lastUserDisplay.textContent = lastUser[0].username;
+//         lastScoreDisplay.textContent = lastUser[0].userscore;
 // }
+
 

@@ -19,16 +19,21 @@
 <body>
     <div class="jumbotron jumbotron-fluid">
         <a href="highscore.html" class="float-left">
-            <h3>View Highscores</h3>
+            <h4>View Highscores</h4>
         </a>
-        <div class="float-right">Timer: <h3 class="timer"></h3></div>
+        
+        <div class="float-right">
+            <span class="timer-font">Timer:</span>
+            <h4 class="timer"></h4>
+        </div>
+        <div class="clearing"></div>
     </div>
 
     <div class="container"> 
-        <div class="quizbox">
-            <div class="mainbox">
-                <h1 class ="questiontitle"> Speed Quiz Challenge</h1>
-                <p class= "questionbody">
+        <div class="quizbox row">
+            <div class="mainbox col-12 centerize">
+                <h1 class ="question-title col-12 py-1 my-1"> Speed Quiz Challenge</h1>
+                <p class= "question-body col-12 py-1">
                     Hello! Welcome to Speed Quiz Challenge.
                     This Quiz will be based on your basic food knowledge.
                     Please note that if you choose incorrect asnwer, you lose your points and time by five seconds!
@@ -37,18 +42,21 @@
                     <br>
                     Press START to begin.
                 </p>
-                <ul class="answer-div">
+                <ul class="answer-div col-3 ml-auto mr-auto">
 
                 </ul>
             </div>
-            
-            <button type="button" class="btn btn-danger" id="start">START</button>
+            <div class="col-12 ml-auto centerize">
+                <button type="button" class="btn btn-success py-1 my-2 mr-1" id="start">START</button>
+            </div>
         </div>
-        <div class="score-box hide">
-            <h3 class="game-over"></h3>
-            <p class="over-message"></p>
-            <input type="text" id="submit-name" placeholder="Enter your names here.">
-            <button id="highscore">Submit</button>
+        <div class="score-box">
+            <div class="hide centerize" style="display: none;">
+                <h3 class="game-over"></h3>
+                <p class="over-message"></p>
+                <input type="text" id="submit-name" placeholder="Enter your names here.">
+                <button id="highscore" class="btn btn-success py-1 my-2 mr-1">Submit</button>
+            </div>
         </div>
     </div>
 

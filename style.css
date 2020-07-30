@@ -12,35 +12,41 @@ body {
 .questionbody {
     font-family: 'Source Sans Pro', sans-serif;
     text-align: center;
-    font-size: 17px;
+    font-size: 20px;
 }
 
-#start {
-    margin-left: 220px;
-    /* width makes button wider
-    width: 100%; */
+.centerize {
+    text-align: center;
 }
 
-/* main conatiner */
+.clearing {
+    clear: both;
+}
 
 .container {
-    padding: 50px;
-    max-width: 600px;
-    margin: 200px auto;
     border: 10px;
     border-style: solid;
-    border-color: tomato;
+    border-color: #77AF9C;
     border-radius: 25px;
-}
-
-.quizbox {
-    height: 500px;
-    width: 100%;
-    margin: 0 auto;
-    border-radius: 50%;
-    position: relative; 
 }
 
 .hide {
     display: none;
 }   
+
+li {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 15px;
+    text-align: center;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 25px;
+    border-color: black;
+    background-color: #8CD790;
+    list-style-type: none;
+    
+}
+
+.timer-font {
+    font-size: 21px;
+}
