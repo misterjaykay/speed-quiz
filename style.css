@@ -41,6 +41,6 @@ body {
     position: relative; 
 }
 
-.none {
-    display: none;  
-}
+.hide {
+    display: none;
+}   

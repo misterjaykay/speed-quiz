@@ -104,21 +104,28 @@ listEl.addEventListener("click", function(event) {
     console.log(trueAnswer);
     if (trueAnswer === userAnswer) {
         points++;
+        if (timeLeft <= 0) {
+            endMessage();
+        }
         nextQuestion();
     }
     else {
         points--;
-        timeLeft - 5;
+        timeLeft -= 5;
+        if (timeLeft <= 0) {
+            endMessage();
+        }
         nextQuestion();
     }
 });
 
 ////////// GOING TO NEXT QUESTION
 function nextQuestion() {
-    answerDiv.removeChild(answerDiv.childNodes[4]);
-    answerDiv.removeChild(answerDiv.childNodes[3]);
-    answerDiv.removeChild(answerDiv.childNodes[2]);
-    answerDiv.removeChild(answerDiv.childNodes[1]);
+    answerDiv.innerHTML = " ";
+    // answerDiv.removeChild(answerDiv.childNodes[4]);
+    // answerDiv.removeChild(answerDiv.childNodes[3]);
+    // answerDiv.removeChild(answerDiv.childNodes[2]);
+    // answerDiv.removeChild(answerDiv.childNodes[1]);
     var isQuestionOver = (questionList.length - 1) === questionIndex;
     console.log(isQuestionOver);
     if (isQuestionOver) {
@@ -127,6 +134,7 @@ function nextQuestion() {
         timeEl.textContent = timeLeft + " sec Remaining";
         endMessage();
     }
+    
     else {
         questionIndex++;
         showQuestion();
@@ -135,6 +143,8 @@ function nextQuestion() {
     
 }
 
+
+///// ENDING HERE
 var scoreBox = document.querySelector(".score-box");
 var gameOver = document.querySelector(".game-over");
 var overMessage = document.querySelector(".over-message");
@@ -142,11 +152,73 @@ var sumbmitButton = document.querySelector("#highscore");
 var mainEl = document.querySelector(".mainbox");
 
 function endMessage(){
-    mainEl.setAttribute("style","display:none;");
+    quizEl.setAttribute("class","hide");
     gameOver.textContent = "Game Over!";
     overMessage.textContent = "Thank you for playing.\n Your total point is " + points;
-    var submitButton = document.createElement("button");
-    submitButton.textContent = "Submit";
-    submitButton.setAttribute("OnClick", "location.href='highscore.html'");
-    scoreBox.append(submitButton);
+    scoreBox.removeAttribute("class", "hide");
+    // var submitName = document.createElement("input");
+    // submitName.setAttribute("type", "text")
+    // submitName.setAttribute("id", "submit-name");
+    // submitName.setAttribute("placeholder", "Enter your names here.")
+    // scoreBox.append(submitName);
+
+    // var submitButton = document.createElement("button");
+    // submitButton.textContent = "Submit";
+    // submitButton.setAttribute("OnClick", "location.href='highscore.html'");
+    // scoreBox.append(submitButton);
 }
+
+/////////////////////////////// TODAYS WORK
+
+
+// Cannot have id on button right now.
+// var sumbmitButtonClick = document.querySelector();
+// function addHighscore() {
+
+var submitNameInput = document.querySelector("#submit-name");
+
+
+sumbmitButton.addEventListener("click", function() {
+    if (userData !== "") {
+        var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
+
+        var userData = {
+            username: submitNameInput.value.trim(),
+            userscore: points
+        };
+        highscores.push(userData);
+        localStorage.setItem("highscores", JSON.stringify(highscores));
+        var lastUser = JSON.parse(localStorage.getItem("highscores"));
+        console.log(lastUser[0]);
+        window.location.href = "highscore.html";  
+        return displayLast();
+    }
+});
+
+var lastUserDisplay = document.querySelector("#last-user-display");
+var lastScoreDisplay = document.querySelector("#last-user-score");
+
+////////////////////// DISPLAYING SCORE
+function displayLast() {
+    // lastUserDisplay.textContent = lastUser[0].username;
+    // lastScoreDisplay.textContent = lastUser[0].userscore;
+    // alert("bye1");
+    var lastUserDisplay = document.querySelector("#last-user-display");
+    var lastScoreDisplay = document.querySelector("#last-user-score");
+
+    var lastUser = JSON.parse(localStorage.getItem("highscores"));
+        console.log(lastUser[0].username);
+        console.log(lastUser[0]);
+        lastUserDisplay.textContent = lastUser[0].username;
+        lastScoreDisplay.textContent = lastUser[0].userscore;
+        console.log(lastUser.username);
+        console.log(lastUser);
+    alert("bye2");
+}
+
+//////////////// STORING IN LOCAL STROAGE
+// function addHighscore() {
+//     localStorage.setItem("userData", JSON.stringify(userData));
+     
+// }
+
