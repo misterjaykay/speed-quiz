@@ -15,7 +15,7 @@
 
 ## Page Preview
 
-https://misterjaykay.github.io/password-generator
+https://misterjaykay.github.io/speed-quiz
 
 ## Overview (Contents)
 
@@ -37,5 +37,5 @@ When the quiz is over, you will see a result screen with your score, and you wil
 
 Jonghyun Kang - misterjaykay@gmail.com
 
-Project Repo Link: https://github.com/misterjaykay/password-generator
+Project Repo Link: https://github.com/misterjaykay/speed-quiz
 
