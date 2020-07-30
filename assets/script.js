@@ -47,6 +47,7 @@ var questionIndex = 0;
 var points = 0;
 var quizEl = document.querySelector(".quizbox");
 var startButton = document.getElementById("start");
+var audioPlay = document.querySelector("#play-bgm");
 
 
 
@@ -58,7 +59,15 @@ function startQuiz() {
     quizEl.children[1].setAttribute("style", "display:none;");
     startTime();
     showQuestion();
+    bgmPlay();
 }
+
+
+function bgmPlay() {
+    audioPlay.volume = 0.2;
+    audioPlay.play();
+}
+
 
 ///////////////// TIMER
 var timeEl = document.querySelector(".timer");
