@@ -116,8 +116,8 @@ listEl.addEventListener("click", function(event) {
     var btnClick = event.target;
     var userAnswer = btnClick.getAttribute("id");
     var trueAnswer = questionList[questionIndex].answer;
-    console.log(userAnswer);
-    console.log(trueAnswer);
+    console.log("User's answer is " + userAnswer);
+    console.log("Correct asnwer is " + trueAnswer);
     if (trueAnswer === userAnswer) {
         points++;
         if (timeLeft <= 0) {
@@ -143,7 +143,6 @@ function nextQuestion() {
     // answerDiv.removeChild(answerDiv.childNodes[2]); /// 
     // answerDiv.removeChild(answerDiv.childNodes[1]); /// 
     var isQuestionOver = (questionList.length - 1) === questionIndex;
-    console.log(isQuestionOver);
     if (isQuestionOver) {
         clearInterval(timerInterval);
         timeLeft = 0;
