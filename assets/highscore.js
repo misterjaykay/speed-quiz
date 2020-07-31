@@ -12,7 +12,7 @@ for (var i = 0; i < lastUser.length; i++) {
     var random = lastUser.length[i];
 
     var li = document.createElement("li");
-    li.innerHTML = "Name: " + lastUser[0].username + "<br>" + " Score: " + lastUser[0].userscore;
+    li.innerHTML = "Name: " + lastUser[i].username + "<br>" + " Score: " + lastUser[i].userscore;
     leaderBoard.append(li);
 }
 
