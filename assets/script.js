@@ -96,7 +96,8 @@ function showQuestion() {
     console.log(questionChoice);
 
     questionTitle.textContent = questionShow;
-    questionBody.setAttribute("style","display: none;");
+    // questionBody.setAttribute("style","display: none;");
+    questionBody.innerHTML = "";
     // questionChoice.textContent = li; 
     for (var i = 0; i < questionList[questionIndex].choices.length; i++) {
         var answer = questionList[questionIndex].choices[i];
