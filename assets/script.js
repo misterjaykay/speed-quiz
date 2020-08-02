@@ -101,10 +101,18 @@ function showQuestion() {
     for (var i = 0; i < questionList[questionIndex].choices.length; i++) {
         var answer = questionList[questionIndex].choices[i];
             
-        var li = document.createElement("li");
-        li.textContent = answer;
-        li.setAttribute("id", questionList[questionIndex].choices[i]);  
-        answerDiv.append(li);
+        var inputEl = document.createElement("input");
+        inputEl.setAttribute("id",questionList[questionIndex].choices[i]);  
+        inputEl.setAttribute("type","button");
+        inputEl.setAttribute("value", answer);
+        inputEl.setAttribute("class", "answer-button");
+        inputEl.setAttribute("width", "100px");
+        
+        answerDiv.append(inputEl);
+
+        // li.textContent = answer;
+        // li.setAttribute("id", questionList[questionIndex].choices[i]);  
+        // answerDiv.append(li);
     }
 
 }

@@ -26,7 +26,7 @@ body {
 .container {
     border: 10px;
     border-style: solid;
-    border-color: #77AF9C;
+    border-color: #a8e0cf;
     border-radius: 25px;
 }
 
@@ -49,4 +49,23 @@ li {
 
 .timer-font {
     font-size: 21px;
+}
+
+.answer-button {
+    display: block;
+    margin-bottom: 5px;
+    background-color: #8CD790;
+    color: rgb(4, 4, 53);
+    border-radius: 32px;
+    border-color: gray;
+}
+
+.jumbotron {
+    text-align: center;
+    background-color: #a8e0cf;
+}
+
+.show {
+    display: block;
+    display: inline;
 }
