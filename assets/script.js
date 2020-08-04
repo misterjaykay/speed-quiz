@@ -129,20 +129,44 @@ listEl.addEventListener("click", function(event) {
     console.log("Correct asnwer is " + trueAnswer);
     if (trueAnswer === userAnswer) {
         points++;
+        correctAlert();
         if (timeLeft <= 0) {
             endMessage();
         }
+        setTimeout(removeAlert, 800);
         nextQuestion();
     }
     else {
         points--;
+        incorrectAlert();
         timeLeft -= 5;
         if (timeLeft <= 0) {
             endMessage();
         }
+        setTimeout(removeAlert, 800);
         nextQuestion();
     }
 });
+
+var correctAns = document.querySelector(".correct-ans");
+var incorrectAns = document.querySelector(".incorrect-ans");
+
+function correctAlert() {
+    
+    correctAns.textContent = "Correct!";
+    mainEl.append(correctAns);
+}
+
+function incorrectAlert() {
+    
+    incorrectAns.textContent = "Incorrect!";
+    mainEl.append(incorrectAns);
+}
+
+function removeAlert() {
+    incorrectAns.innerHTML = "";
+    correctAns.innerHTML = "";
+}
 
 ////////////// GOING TO NEXT QUESTION
 function nextQuestion() {
@@ -202,7 +226,7 @@ sumbmitButton.addEventListener("click", function() {
         highscores.push(userData);
         localStorage.setItem("highscores", JSON.stringify(highscores));
         window.location.href = "highscore.html";  
-        return displayLast();
+        return;
     }
 });
 
